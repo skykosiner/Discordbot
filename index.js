@@ -1,9 +1,11 @@
-// require("dotenv").config();
+const dotenv = require("dotenv");
 const { prefix } = require("./config.json");
 const fs = require("fs");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-// const TOKEN = process.env.TOKEN;
+
+dotenv.config();
+const TOKEN = process.env.TOKEN;
 
 bot.commands = new Discord.Collection();
 const commandFiles = fs
@@ -18,7 +20,7 @@ for (const file of commandFiles) {
   bot.commands.set(command.name, command);
 }
 
-bot.login("Nzg5MTk5MDIxMTA0ODI0NDAw.X9uk3Q.mxlSKXgrvL_5OPWUMdAb0QIgjgE");
+bot.login(TOKEN);
 
 bot.on("ready", () => {
   console.info(`Logged in as ${bot.user.tag}!`);
