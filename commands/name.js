@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 
 module.exports = {
   name: "name",
-  description: "Instagram Page",
+  description: "Get name of user",
   execute(message, args) {
     const checkAvailability = async (url) => {
       const browser = await puppeteer.launch();
